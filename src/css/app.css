@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Day Roman";
+  src: url("../fonts/day-roman.regular-webfont.woff2") format("woff2"),
+    url("../fonts/day-roman.regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background--dark: #07031a;
+  --accent--color: #e84a5f;
+  --light--color: #fdfdfd;
+  --white--color: #fff;
+  --ff--primary: "Poppins", sans-serif;
+  --ff--secondary: "Day Roman", sans-serif;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background--dark);
+  overflow-x: hidden;
+}
+
+main {
+  display: block;
+}
+
+.converter {
+  display: grid;
+  grid-template-columns: minmax(0, 250px) 1fr minmax(0, 250px);
+}
+
+.left-side,
+.right-side {
+  height: 100vh;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size: 100vh 100vh;
+}
+
+.left-side {
+  background-image: url(../img/left-roman-column.svg);
+  background-position: 70% 30%;
+}
+
+.right-side {
+  background-image: url(../img/right-roman-column.svg);
+  background-position: 30% 70%;
+}
+
+.container {
+  max-width: 70vw;
+  padding-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.converter__data {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.converter__header {
+  color: var(--light--color);
+  font-weight: normal;
+  font-size: 1.875rem;
+  line-height: 1.4;
+}
+
+label {
+  color: var(--accent--color);
+}
+
+.converter__input::-webkit-inner-spin-button,
+.converter__input::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.converter__input {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 1em 0.7em;
+  font-family: var(--ff--primary);
+  font-size: 1.375rem;
+  text-align: center;
+  line-height: 1.15;
+  border: none;
+  background-color: transparent;
+  color: var(--white--color);
+  background: linear-gradient(to right, var(--white--color) 50%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(var(--white--color) 50%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(to right, var(--white--color) 50%, rgba(255, 255, 255, 0) 0%),
+    linear-gradient(var(--white--color) 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: top, right, bottom, left;
+  background-repeat: repeat-x, repeat-y;
+  background-size: 10px 1px, 1px 10px;
+}
+
+.equal-sign {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--light--color);
+}
+
+.converter__result {
+  font-size: 1.5rem;
+  font-family: var(--ff--secondary);
+  color: var(--accent--color);
+}
+
+.date {
+  padding-bottom: 1rem;
+}
+
+.date__numeral {
+  font-size: 1rem;
+  color: var(--light--color);
+}
+
+.arrow-sign {
+  color: var(--light--color);
+}
+
+.date__roman {
+  font-size: 1rem;
+  font-family: var(--ff--secondary);
+  color: var(--accent--color);
+}
+
+@media (min-width: 768px) {
+  .converter__header {
+    font-size: 2.25rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .converter__input {
+    font-size: 3rem;
+    padding: 0.5rem;
+  }
+
+  .equal-sign {
+    font-size: 3rem;
+  }
+
+  .converter__result {
+    font-size: 4rem;
+  }
+
+  .date__numeral,
+  .date__roman {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .converter__data {
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .equal-sign {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .converter__header {
+    font-size: 3.125rem;
+  }
+}
+
+.github-corner {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.2;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.github-corner:hover {
+  opacity: 0.7;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
