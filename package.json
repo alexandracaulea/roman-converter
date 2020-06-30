@@ -21,6 +21,8 @@
     "@babel/core": "^7.10.2",
     "@babel/plugin-transform-runtime": "^7.10.1",
     "autoprefixer": "^9.8.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "gh-pages": "^3.1.0",
     "jest": "^26.0.1",
     "parcel-bundler": "^1.12.4",
@@ -33,6 +35,10 @@
     "clean": "rimraf ./development/ && rimraf ./.cache/",
     "test": "jest",
     "testWatch": "jest --watchAll"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost:1234/"
   },
   "browserslist": [
     "last 1 Chrome versions"
