@@ -1,8 +1,11 @@
 import { romanNumbers, decimalNumbers } from "./numbers";
 import { currentDateNumeral, currentDateRoman, converterInput, resultConversion } from "./elements";
 
-export const convertDateToRoman = (currentDate, delimiter) => {
+export function convertDateToRoman(currentDate, delimiter) {
   let stringDate = "";
+
+  if (arguments.length !== 2) return;
+  if (!Array.isArray(currentDate)) return;
 
   for (let i = 0; i < currentDate.length; i++) {
     for (let j = 0; j < decimalNumbers.length; j++) {
@@ -15,19 +18,22 @@ export const convertDateToRoman = (currentDate, delimiter) => {
   }
   const result = stringDate.substring(0, stringDate.length - 1);
   return result;
-};
+}
 
-export const convertToString = (date) => {
+export function convertToString(date) {
+  if (arguments.length !== 1) return;
   return String(date);
-};
+}
 
-export const padBeginning = (date) => {
+export function padBeginning(date) {
+  if (arguments.length !== 1) return;
+
   const stringDate = convertToString(date);
   if (stringDate < 10) {
     return stringDate.padStart(2, 0);
   }
   return stringDate;
-};
+}
 
 export const convertToRoman = (input) => {
   let stringDate = "";
