@@ -86,7 +86,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 100px;
+  padding-top: 70px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -109,7 +109,7 @@ label {
   grid-template-areas: "input" "sign" "result";
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 25px minmax(25px, auto);
-  grid-gap: 20px;
+  grid-gap: 10px;
   align-items: center;
   position: relative;
 }
@@ -130,10 +130,26 @@ label {
 .converter__result {
   grid-area: result;
   font-size: 1.333rem;
-  padding: 23px 20px;
+  padding: 15px;
   font-family: var(--ff--secondary);
   color: var(--accent--color);
   word-break: break-all;
+  overflow-y: auto;
+  height: 100px;
+}
+
+.converter__result::-webkit-scrollbar {
+  width: 12px;
+}
+.converter__result {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent--color) var(--light--color);
+}
+.converter__result::-webkit-scrollbar-track {
+  background: var(--light--color);
+}
+.converter__result::-webkit-scrollbar-thumb {
+  background-color: var(--accent--color);
 }
 
 .converter__input {
@@ -215,7 +231,7 @@ label {
   }
 
   .converter__data {
-    grid-template-rows: 1fr 45px minmax(45px, auto);
+    grid-template-rows: 80px;
   }
 
   .converter__input {
