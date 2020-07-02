@@ -35,7 +35,9 @@ export function padBeginning(date) {
   return stringDate;
 }
 
-export const convertToRoman = (input) => {
+export function convertToRoman(input) {
+  if (arguments.length !== 1) return;
+
   let stringDate = "";
 
   for (let i = 0; i < decimalNumbers.length; i++) {
@@ -45,7 +47,7 @@ export const convertToRoman = (input) => {
     }
   }
   return stringDate;
-};
+}
 
 export const displayCurrentDate = () => {
   const date = new Date();
@@ -56,6 +58,6 @@ export const displayCurrentDate = () => {
   currentDateNumeral.textContent = dateToDisplay;
   currentDateNumeral.setAttribute("datetime", `${currentYear}-${currentMonth}-${currentDay}`);
   currentDateRoman.textContent = convertDateToRoman([currentDay, currentMonth, currentYear], ".");
-  converterInput.value = currentDay;
+  converterInput.value = date.getDate();
   resultConversion.textContent = convertToRoman(currentDay);
 };

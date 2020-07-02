@@ -9,15 +9,16 @@ export const handleCloseButton = () => {
 };
 
 export const handleUserTyping = (e) => {
-  const { value } = e.target;
+  let { value } = e.target;
 
   if (value === "") {
     equalSign.setAttribute("hidden", true);
     resultConversion.setAttribute("hidden", true);
     closeButton.setAttribute("hidden", true);
     return;
-  } else if (/[^0-9]/g.test(value) || e.currentTarget.value.startsWith("0")) {
-    value = value.replace(/[^0-9]/g, "");
+  } else if (/[^0-9]/g.test(value) || e.currentTarget.value.search(/^0/) != -1) {
+    value = value.replace(/^0|[^0-9]/g, "");
+    converterInput.value = value;
     resultConversion.innerHTML = convertToRoman(value);
     return;
   }
