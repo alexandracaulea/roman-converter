@@ -1,17 +1,23 @@
-import { romanNumbers, decimalNumbers } from "./numbers";
-import { currentDateNumeral, currentDateRoman, converterInput, resultConversion } from "./elements";
+import { ROMAN_NUMBERS, DECIMAL_NUMBERS } from "./numbers";
+import {
+  currentDateNumeral,
+  currentDateRoman,
+  converterInput,
+  resultConversion,
+  equalSign,
+  closeButton,
+} from "./elements";
 
 export function convertDateToRoman(currentDate, delimiter) {
-  let stringDate = "";
-
   if (arguments.length !== 2) return;
   if (!Array.isArray(currentDate)) return;
 
+  let stringDate = "";
   for (let i = 0; i < currentDate.length; i++) {
-    for (let j = 0; j < decimalNumbers.length; j++) {
-      while (decimalNumbers[j] <= currentDate[i]) {
-        stringDate += romanNumbers[j];
-        currentDate[i] -= decimalNumbers[j];
+    for (let j = 0; j < DECIMAL_NUMBERS.length; j++) {
+      while (DECIMAL_NUMBERS[j] <= currentDate[i]) {
+        stringDate += ROMAN_NUMBERS[j];
+        currentDate[i] -= DECIMAL_NUMBERS[j];
       }
     }
     stringDate = stringDate.concat(delimiter);
@@ -39,25 +45,30 @@ export function convertToRoman(input) {
   if (arguments.length !== 1) return;
 
   let stringDate = "";
-
-  for (let i = 0; i < decimalNumbers.length; i++) {
-    while (decimalNumbers[i] <= input) {
-      stringDate += romanNumbers[i];
-      input -= decimalNumbers[i];
+  for (let i = 0; i < DECIMAL_NUMBERS.length; i++) {
+    while (DECIMAL_NUMBERS[i] <= input) {
+      stringDate += ROMAN_NUMBERS[i];
+      input -= DECIMAL_NUMBERS[i];
     }
   }
   return stringDate;
 }
 
+export function showInformation(attribute, value) {
+  resultConversion.setAttribute(attribute, value);
+  closeButton.setAttribute(attribute, value);
+  equalSign.setAttribute(attribute, value);
+}
+
 export const displayCurrentDate = () => {
-  const date = new Date();
-  const currentDay = padBeginning(date.getDate());
-  const currentMonth = padBeginning(date.getMonth() + 1);
-  const currentYear = convertToString(date.getFullYear());
+  const currentDate = new Date();
+  const currentDay = padBeginning(currentDate.getDate());
+  const currentMonth = padBeginning(currentDate.getMonth() + 1);
+  const currentYear = convertToString(currentDate.getFullYear());
   const dateToDisplay = `${currentDay}.${currentMonth}.${currentYear}`;
   currentDateNumeral.textContent = dateToDisplay;
   currentDateNumeral.setAttribute("datetime", `${currentYear}-${currentMonth}-${currentDay}`);
   currentDateRoman.textContent = convertDateToRoman([currentDay, currentMonth, currentYear], ".");
-  converterInput.value = date.getDate();
+  converterInput.value = currentDate.getDate();
   resultConversion.textContent = convertToRoman(currentDay);
 };

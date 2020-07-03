@@ -1,4 +1,3 @@
-export const converterContainer = document.querySelector(".converter__data");
 export const converterInput = document.querySelector(".converter__input");
 export const closeButton = document.querySelector(".close-btn");
 export const resultConversion = document.querySelector(".converter__result");

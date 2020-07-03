@@ -1,29 +1,24 @@
-import { converterInput, resultConversion, equalSign, closeButton } from "./elements";
-import { convertToRoman } from "./utils";
+import { converterInput, resultConversion } from "./elements";
+import { convertToRoman, showInformation } from "./utils";
 
 export const handleCloseButton = () => {
   converterInput.value = "";
-  closeButton.setAttribute("hidden", true);
-  equalSign.setAttribute("hidden", true);
   resultConversion.textContent = "";
+  showInformation("hidden", true);
 };
 
 export const handleUserTyping = (e) => {
-  let { value } = e.target;
+  let valueTyped = e.target.value;
 
-  if (value === "") {
-    equalSign.setAttribute("hidden", true);
-    resultConversion.setAttribute("hidden", true);
-    closeButton.setAttribute("hidden", true);
+  if (valueTyped === "") {
+    showInformation("hidden", true);
     return;
-  } else if (/[^0-9]/g.test(value) || e.currentTarget.value.search(/^0/) != -1) {
-    value = value.replace(/^0|[^0-9]/g, "");
-    converterInput.value = value;
-    resultConversion.innerHTML = convertToRoman(value);
+  } else if (/[^0-9]/g.test(valueTyped) || valueTyped.search(/^0/) != -1) {
+    valueTyped = valueTyped.replace(/^0|[^0-9]/g, "");
+    converterInput.value = valueTyped;
+    resultConversion.innerHTML = convertToRoman(valueTyped);
     return;
   }
-  closeButton.setAttribute("hidden", false);
-  equalSign.setAttribute("hidden", false);
-  resultConversion.setAttribute("hidden", false);
-  resultConversion.innerHTML = convertToRoman(value);
+  showInformation("hidden", false);
+  resultConversion.innerHTML = convertToRoman(valueTyped);
 };
