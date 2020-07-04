@@ -19,10 +19,14 @@ I've took the code that I've wrote for the _Roman Numeral Converter_ project, pa
 3. To run tests: `npm run test`
 4. To watch the tests: `npm run testWatch`
 
-#### Credit
-
-The image that I've used for the columns was provided by [Clker-Free-Vector-Images](https://pixabay.com/users/clker-free-vector-images-3736/) and it can be found [here](https://pixabay.com/vectors/pillar-column-vine-greek-roman-29655/).
-
 #### Live Example
 
-You can check the live example [here](https://alexandracaulea.github.io/roman-converter/).
+[Live example on GitHub](https://alexandracaulea.github.io/roman-converter/)
+
+![](src/img/gif/roman-numeral-converter.gif)
+
+#### Credit
+
+1. [Pillar column](https://pixabay.com/vectors/pillar-column-vine-greek-roman-29655/) by [Clker-Free-Vector-Images](https://pixabay.com/users/clker-free-vector-images-3736/).
+
+2. [Day Roman Font](https://www.dafont.com/day-roman.font) by [ Apostrophic Labs](https://www.dafont.com/apostrophic-labs.d128).
