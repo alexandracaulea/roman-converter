@@ -29,12 +29,16 @@
     "rimraf": "^3.0.2"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "dev": "npm run clean && parcel public/index.html --out-dir development",
     "build": "rimraf ./dist && rimraf ./.cache/ && parcel build public/index.html --out-dir dist --public-url ./",
     "deploy": "gh-pages -d dist",
     "clean": "rimraf ./development/ && rimraf ./.cache/",
     "test": "jest",
     "testWatch": "jest --watchAll"
+  },
+  "resolutions": {
+    "node-forge": "0.10.0"
   },
   "jest": {
     "verbose": true,
